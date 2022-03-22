@@ -1,0 +1,89 @@
+@import "~normalize.css";
+@import "./variables.scss";
+
+:root {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: $lighterGray;
+}
+
+.App {
+  text-align: center;
+}
+
+.cv__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;  
+  gap: 20px;
+  align-items: end;
+}
+
+.options-btn {
+  margin-bottom: 20px;
+  display: block;
+  background-color: #fff;
+  box-shadow: $regularShadow;
+  border: 0;
+  width: 250px;
+  padding: 15px 10px;
+  text-align: left;
+  cursor: pointer;
+  @include regularTitle;
+  @include grayOnHover;
+  text-transform: capitalize;
+}
+
+.cv {
+  min-height: 100vh;
+  flex: 1 1 0;
+  background-color: #fff;
+  box-shadow: $regularShadow;
+  text-align-last: left;
+  padding: 30px;
+  &__header {
+    display: flex;
+    gap: 60px;
+  }
+  &__image {
+    border: 4px solid black;
+    img {
+      display: block;
+      width: 275px;
+      height: 300px;
+    }
+  }
+  &__overview {
+    flex: 1 1 0;
+  }
+  &__name {
+    @include bigTitle;
+    margin-bottom: 5px;
+  }
+  &__profession {
+  @include regularTitle;
+    color: $regularGray;
+  }
+  &__about {
+    @include regularText;
+    padding-right: 50px;
+    margin-bottom: 30px;
+  }
+  &__overview-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-top: 2px solid $lightGray;
+    border-bottom: 2px solid $lightGray;
+    @include regularText;
+    b {
+      color: #000;
+      font-weight: 700;
+    }
+  }
+}
+
