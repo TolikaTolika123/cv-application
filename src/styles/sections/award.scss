@@ -1,0 +1,15 @@
+@import "../variables.scss";
+
+.cv__award {
+  width: 27%;
+  text-align: left;
+  &-title {
+    @include smallTitle;
+  }
+  p {
+    @include regularText;
+  }
+  &-corp {
+    margin-bottom: 5px !important;  
+  }
+}

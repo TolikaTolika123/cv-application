@@ -1,6 +1,6 @@
 import React from 'react'
-import CVImage from '../CVImage'
-import CVOverview from '../CVOverview'
+import CVImage from '../CV-Header/CVImage'
+import CVOverview from '../CV-Header/CVOverview'
 
 const CVHeader = () => {
   return (

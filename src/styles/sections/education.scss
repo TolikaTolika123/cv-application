@@ -1,0 +1,21 @@
+@import "../variables.scss";
+
+.cv__education {
+  grid-area: education;
+  &-list {
+    list-style: none;
+    padding: 0;
+  }
+  &-item {
+    margin-bottom: 30px;
+    h4 {
+      @include smallTitle;
+    }
+    p {
+      @include regularText;
+    }
+    time {
+      @include regularText;
+    }
+  }
+}

@@ -1,9 +1,10 @@
 import React from 'react'
+import imgLink from '../../images/default-image.svg';
 
 const CVImage = () => {
   return (
     <div className="cv__image">
-      <img src="https://via.placeholder.com/150" alt="You" />
+      <img src={imgLink} alt="You" />
     </div>
   )
 }

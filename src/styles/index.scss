@@ -1,5 +1,13 @@
 @import "~normalize.css";
 @import "./variables.scss";
+@import "./sections/image.scss";
+@import "./sections/overview.scss";
+@import "./sections/contact.scss";
+@import "./sections/education.scss";
+@import "./sections/skills.scss";
+@import "./sections/experience.scss";
+@import "./sections/award.scss";
+@import "./sections/reference.scss";
 
 :root {
   font-family: 'Roboto', sans-serif;
@@ -12,6 +20,7 @@ body {
 
 .App {
   text-align: center;
+  padding: 50px 0;
 }
 
 .cv__container {
@@ -39,7 +48,6 @@ body {
 }
 
 .cv {
-  min-height: 100vh;
   flex: 1 1 0;
   background-color: #fff;
   box-shadow: $regularShadow;
@@ -47,43 +55,25 @@ body {
   padding: 30px;
   &__header {
     display: flex;
-    gap: 60px;
-  }
-  &__image {
-    border: 4px solid black;
-    img {
-      display: block;
-      width: 275px;
-      height: 300px;
-    }
-  }
-  &__overview {
-    flex: 1 1 0;
-  }
-  &__name {
-    @include bigTitle;
-    margin-bottom: 5px;
-  }
-  &__profession {
-  @include regularTitle;
-    color: $regularGray;
-  }
-  &__about {
-    @include regularText;
-    padding-right: 50px;
+    justify-content: space-between;
     margin-bottom: 30px;
   }
-  &__overview-links {
+  
+  &__main {
+    margin-bottom: 30px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 27% 67%;
+    grid-template-areas: 'contact experience'
+                         'education experience'
+                         'skills experience';
+  }
+  &__footer {
     display: flex;
     justify-content: space-between;
-    padding: 10px 50px;
-    border-top: 2px solid $lightGray;
-    border-bottom: 2px solid $lightGray;
-    @include regularText;
-    b {
-      color: #000;
-      font-weight: 700;
-    }
   }
 }
 
+.regular__title {
+  @include regularTitle;
+}

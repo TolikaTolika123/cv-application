@@ -1,0 +1,27 @@
+@import "../variables.scss";
+
+.cv__skills {
+  grid-area: skills;
+  &-list {
+    list-style: none;
+    padding: 0;
+  }
+  &-item {
+    @include regularText;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    progress {
+      border: 0;
+      height: 7.5px;
+      background-color: #dfe6e9;
+      &::-webkit-progress-bar {
+        background-color: #dfe6e9;
+      }
+      &::-webkit-progress-value {
+        background-color: #000;
+      }
+    }
+  }
+}

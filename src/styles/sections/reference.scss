@@ -1,0 +1,24 @@
+@import "../variables.scss";
+
+.cv__reference {
+  width: 67%;
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+  }
+  &-item-title {
+    @include smallTitle;
+    margin-bottom: 2.5px;
+  }
+  p {
+    @include regularText;
+    b {
+      color: #000;
+      font-weight: 700;
+    }
+  }
+  &-item-position {
+    margin-bottom: 5px !important;
+  }
+}

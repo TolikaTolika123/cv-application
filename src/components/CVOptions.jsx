@@ -1,5 +1,5 @@
 import React from 'react';
-import OptionsBtn from './UI/OptionsBtn/OptionsBtn';
+import OptionsBtn from './UI/OptionsBtn';
 
 const CVOptions = () => {
   return (

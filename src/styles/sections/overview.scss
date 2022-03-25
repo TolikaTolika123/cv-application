@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+.cv {
+  &__overview {
+    width: 67%;
+  }
+  &__name {
+    @include bigTitle;
+    margin-bottom: 5px;
+  }
+  &__profession {
+  @include regularTitle;
+    color: $regularGray;
+  }
+  &__about {
+    @include regularText;
+    padding-right: 50px;
+    margin-bottom: 30px;
+  }
+  &__social {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-top: 2px solid $lightGray;
+    border-bottom: 2px solid $lightGray;
+    @include regularText;
+    b {
+      color: #000;
+      font-weight: 700;
+    }
+  }
+}

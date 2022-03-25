@@ -1,8 +1,13 @@
 import React from 'react'
+import CVAward from '../CV-Footer/CVAward'
+import CVReference from '../CV-Footer/CVReference'
 
 const CVFooter = () => {
   return (
-    <div>CVFooter</div>
+    <div className='cv__footer'>
+      <CVAward />
+      <CVReference />
+    </div>
   )
 }
 
