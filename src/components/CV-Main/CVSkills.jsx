@@ -1,5 +1,7 @@
 import React from 'react'
+import uniqid from 'uniqid'
 import SkillItem from '../UI/SkillItem'
+import EditBtn from '../UI/EditBtn'
 
 const CVSkills = () => {
   const skills = [
@@ -11,13 +13,14 @@ const CVSkills = () => {
   ]
 
   return (
-    <div className='cv__skills'>
+    <div className='cv__skills cv__section'>
       <h3 className="skills__title regular__title">skills</h3>
       <ul className="cv__skills-list">
         {skills.map(skill => (
-          <SkillItem skill={skill.skill} proficiency={skill.proficiency} />
+          <SkillItem key={uniqid()} skill={skill.skill} proficiency={skill.proficiency} />
         ))}
       </ul>
+      <EditBtn />
     </div>
   )
 }

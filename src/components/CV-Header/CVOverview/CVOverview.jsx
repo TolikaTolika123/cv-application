@@ -1,9 +1,13 @@
-import React from 'react'
-import SocialItem from '../UI/SocialItem'
+import React, {useState} from 'react'
+import SocialItem from '../../UI/SocialItem'
+import EditBtn from '../../UI/EditBtn'
+import CVOverviewPopup from './CVOverviewPopup'
 
 const CVOverview = () => {
+  const [modal, setModal] = useState(false);
+
   return (
-    <div className='cv__overview'>
+    <div onClick={() => {setModal(true)}} className='cv__overview cv__section'>
       <h1 className="cv__name">Richard davis</h1>
       <p className="cv__profession">Front-end developer</p>
       <p className="cv__about">
@@ -13,6 +17,8 @@ const CVOverview = () => {
         <SocialItem socialNetwork='Facebook' username='@richarddavsi888'/>
         <SocialItem socialNetwork='Linkedin' username='@richarddavsi888'/>
       </div>
+      <EditBtn />
+      <CVOverviewPopup visible={modal} setVisible={value => setModal(value)}/>
     </div>
   )
 }

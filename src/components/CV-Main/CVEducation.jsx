@@ -1,6 +1,7 @@
 import React from 'react'
 import EducationItem from '../UI/EducationItem'
 import uniqid from 'uniqid';
+import EditBtn from '../UI/EditBtn'
 
 const CVEducation = () => {
   const ls = [
@@ -9,7 +10,7 @@ const CVEducation = () => {
   ]
 
   return (
-    <div className='cv__education'>
+    <div className='cv__education cv__section'>
       <h3 className="education__title regular__title">Education</h3>
       <ul className='cv__education-list'>
         {
@@ -18,6 +19,7 @@ const CVEducation = () => {
           ))
         }
       </ul>
+      <EditBtn />
     </div>
   )
 }

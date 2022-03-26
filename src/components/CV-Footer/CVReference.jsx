@@ -1,5 +1,7 @@
 import React from 'react'
+import uniqid from 'uniqid'
 import ReferenceItem from '../UI/ReferenceItem'
+import EditBtn from '../UI/EditBtn'
 
 const CVReference = () => {
   const references = [
@@ -8,13 +10,14 @@ const CVReference = () => {
   ]
 
   return (
-    <div className='cv__reference'>
+    <div className='cv__reference cv__section'>
       <h3 className="reference__title regular__title">Reference</h3>
       <div className="cv__reference-content">
         {references.map(item => (
-          <ReferenceItem name={item.name} position={item.position} phone={item.phone} email={item.email}/>
+          <ReferenceItem key={uniqid()} name={item.name} position={item.position} phone={item.phone} email={item.email}/>
         ))}
       </div>
+      <EditBtn />
     </div>
   )
 }
