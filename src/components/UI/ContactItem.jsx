@@ -1,12 +1,9 @@
 import React from 'react'
 
-const ContactItem = ({ img, type, content, link }) => {
+const ContactItem = ({ img, content }) => {
   return (
     <li className={`cv__contact-item ${img}`}>
-      {link
-        ? <a href={`${type}:${content}`}>{content}</a>
-        : <span>{content}</span>
-      }
+      {content}
     </li>
   )
 }

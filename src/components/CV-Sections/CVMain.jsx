@@ -1,5 +1,5 @@
 import React from 'react'
-import CVContact from '../CV-Main/CVContact'
+import CVContact from '../CV-Main/CVContact/CVContact'
 import CVEducation from '../CV-Main/CVEducation'
 import CVSkills from '../CV-Main/CVSkills'
 import CVExperience from '../CV-Main/CVExperience'
