@@ -4,7 +4,7 @@ import EditBtn from '../UI/EditBtn'
 
 const CVAward = () => {
   return (
-    <div className='cv__award cv__section'>
+    <div className='cv__award section'>
       <h3 className="award__title regular__title">Award</h3>
       <AwardItem
         title={'Best employee of the year'}

@@ -36,7 +36,7 @@ const CVExperience = () => {
   ]
 
   return (
-    <div className='cv__experience cv__section'>
+    <div className='cv__experience section'>
       <h3 className="experience__title regular__title">Work experience</h3>
       <ul className='cv__experience-list'>
         {experienceList.map(item => (

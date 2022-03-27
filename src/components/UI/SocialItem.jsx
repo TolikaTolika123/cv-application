@@ -4,7 +4,7 @@ const SocialItem = ({socialNetwork, username}) => {
   return (
     <div className="cv__social-item">
       <b>{socialNetwork}. </b>
-      <span>{username}</span>
+      <span>@{username}</span>
     </div>
   )
 }

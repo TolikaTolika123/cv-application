@@ -10,7 +10,7 @@ const CVEducation = () => {
   ]
 
   return (
-    <div className='cv__education cv__section'>
+    <div className='cv__education section'>
       <h3 className="education__title regular__title">Education</h3>
       <ul className='cv__education-list'>
         {

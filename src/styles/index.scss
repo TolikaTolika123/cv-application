@@ -71,36 +71,101 @@ body {
     display: flex;
     justify-content: space-between;
   }
-  &__section {
-    position: relative;
-    cursor: pointer;
-    @include grayOnHover;
-    &:hover {
-      .edit__btn {
-        display: block;
-      }
+}
+
+.section {
+  position: relative;
+  cursor: pointer;
+  @include grayOnHover;
+  &:hover {
+    .edit__btn {
+      display: block;
     }
   }
-  &__section-popup {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: none;
-    z-index: 2;
-    background-color: rgba(#000, .5);
-    cursor: default;
-    &.active {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+}
+.section__popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 2;
+  background-color: rgba(#000, .5);
+  cursor: default;
+  &.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  &__section-popup-content {
+  &-content {
     padding: 30px;
     background-color: #fff;
-    min-width: 250px;
+
+    min-width: 500px;
+  }
+  &-title {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0 0 30px;
+  }
+  &-formGroup {
+    display: flex;
+    justify-content: space-between;
+
+  }
+  &-inputContainer,
+  &-textareaContainer {
+    margin-bottom: 20px;
+  }
+  &-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+    border-top: 1px solid $regularGray;
+    padding-top: 20px;
+    margin-top: 30px;
+    button {
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 3px;
+      padding: 15px 50px;
+      cursor: pointer;
+      
+    }
+  }
+  &-label {
+    display: block;
+    @include regularText;
+  }
+  
+  &-input,
+  &-textarea {
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  &-input {
+    width: 100%;
+  }
+  &-textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+  }
+  &-cancel {
+    background-color: #fff;
+    border: 1px solid $regularGray;
+    &:hover {
+       background: darken(#fff, 5%); 
+    }
+  }
+  &-save {
+    background-color: #440ccc;
+    color: #fff;
+    border: none;
+    &:hover {
+        background: darken(#440ccc, 5%);
+    }
   }
 }
 

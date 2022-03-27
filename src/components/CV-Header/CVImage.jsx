@@ -7,6 +7,7 @@ const CVImage = () => {
     <div className="cv__image">
       <img src={selectedImage} alt="Not found" />
       <input
+        title='Select Image'
         type="file"
         name="myImage"
         alt='d'

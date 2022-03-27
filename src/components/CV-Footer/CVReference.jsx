@@ -10,7 +10,7 @@ const CVReference = () => {
   ]
 
   return (
-    <div className='cv__reference cv__section'>
+    <div className='cv__reference section'>
       <h3 className="reference__title regular__title">Reference</h3>
       <div className="cv__reference-content">
         {references.map(item => (
