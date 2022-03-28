@@ -3,26 +3,28 @@ import React from 'react'
 const SectionPopup = ({ title, children, states, setStates, changedStates, setChangedStates }) => {
   const rootClasses = ['section__popup'];
   if (states.modal) {
-    rootClasses.push('active')
+    rootClasses.push('active');
+    document.body.style.overflow = "hidden"
   }
 
   function hidePopup(e) {
     e.stopPropagation();
     setStates.setModal(false);
+    document.body.style.overflow = "auto"
   }
 
   function cancelChanges(e) {
     e.preventDefault();
     for (let state in changedStates) {
-      setChangedStates[`set${firstLetterUppercase(state)}`](states[state])
+      setChangedStates[`set${firstLetterUppercase(state)}`](structuredClone(states[state]))
     }
     hidePopup(e);
   }
 
   function saveChanges(e) {
     e.preventDefault();
-    for (let state in states) {
-      if (state !== 'modal') setStates[`set${firstLetterUppercase(state)}`](changedStates[state])
+    for (let state in changedStates) {
+      setStates[`set${firstLetterUppercase(state)}`](structuredClone(changedStates[state]))
     }
     hidePopup(e);
   }

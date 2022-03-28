@@ -9,6 +9,9 @@
 @import "./sections/award.scss";
 @import "./sections/reference.scss";
 
+* {
+  box-sizing: border-box;
+}
 :root {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -16,6 +19,7 @@
 
 body {
   background-color: $lighterGray;
+  overflow: auto;
 }
 
 .App {
@@ -84,6 +88,7 @@ body {
   }
 }
 .section__popup {
+  overflow: auto;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -101,7 +106,8 @@ body {
   &-content {
     padding: 30px;
     background-color: #fff;
-
+    position: relative;
+    top: 55px;
     min-width: 500px;
   }
   &-title {
@@ -167,6 +173,16 @@ body {
     &:hover {
         background: darken(#440ccc, 5%);
     }
+  }
+  &-formItem {
+    border-bottom: 1px solid $regularGray;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  &-formItem:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: 0;
   }
 }
 

@@ -3,7 +3,7 @@ import React from 'react'
 const EducationItem = (props) => {
   return (
     <li className='cv__education-item'>
-      <h4>{props.level}</h4>
+      <h4>{props.subject}/{props.level}</h4>
       <p>
         <span>{props.name} </span>
          - 
