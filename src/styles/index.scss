@@ -91,25 +91,30 @@ body {
 .section__popup {
   overflow: auto;
   position: fixed;
-  top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
+  top: 0;
+  bottom: 0;
+  min-height: 100vh;
   display: none;
   z-index: 2;
   background-color: rgba(#000, 0.5);
   cursor: default;
   &.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+  }
+  &-wrapper {
+    max-width: 600px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
   }
   &-content {
     padding: 30px;
     background-color: #fff;
     position: relative;
     top: 55px;
-    min-width: 500px;
+    min-width: 560px;
   }
   &-title {
     font-weight: 500;

@@ -11,7 +11,7 @@ const CVSkillsPopup = ({states, setStates}) => {
   }
   return (
     <SectionPopup
-      title='Where did you study?'
+      title='What are your stand-out skills?'
       states={states}
       setStates={setStates}
       changedStates={{ skills }}

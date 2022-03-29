@@ -37,16 +37,19 @@ const SectionPopup = ({ title, children, states, setStates, changedStates, setCh
 
   return (
     <div className={rootClasses.join(' ')}>
-      <div className='section__popup-content' onClick={e => e.stopPropagation()}>
-        <h3 className="section__popup-title">{title}</h3>
-        <form className="section__popup-form">
-          {children}
-          <div className="section__popup-buttons">
-            <button className="section__popup-cancel" onClick={cancelChanges}>Cancel</button>
-            <button className="section__popup-save" onClick={saveChanges}>Save</button>
-          </div>
-        </form>
+      <div className="section__popup-wrapper">
+        <div className='section__popup-content' onClick={e => e.stopPropagation()}>
+          <h3 className="section__popup-title">{title}</h3>
+          <form className="section__popup-form">
+            {children}
+            <div className="section__popup-buttons">
+              <button className="section__popup-cancel" onClick={cancelChanges}>Cancel</button>
+              <button className="section__popup-save" onClick={saveChanges}>Save</button>
+            </div>
+          </form>
+        </div>
       </div>
+
     </div>
   )
 }
