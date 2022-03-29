@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import SectionPopup from '../../UI/SectionPopup'
+import SectionPopup from '../../UI/Popup/SectionPopup'
+import PopupInput from '../../UI/Popup/PopupInput';
 
 const CVContactPopup = ({ states, setStates }) => {
   const [phone, setPhone] = useState(states.phone);
@@ -20,78 +21,50 @@ const CVContactPopup = ({ states, setStates }) => {
       changedStates={changedStates}
       setChangedStates={setChangedStates}
     >
-      <div className="section__popup-inputContainer">
-        <label htmlFor="section__popup-input" className='section__popup-label'>Phone</label>
-        <input
-          name='phone'
-          type="tel"
-          className="section__popup-input"
-          value={phone}
-          onChange={e => setPhone(e.target.value)}
-        />
-      </div>
-      <div className="section__popup-inputContainer">
-        <label htmlFor="section__popup-input" className='section__popup-label'>Email</label>
-        <input
-          name='email'
-          type="text"
-          className="section__popup-input"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="section__popup-inputContainer">
-        <label htmlFor="section__popup-input" className='section__popup-label'>Street Aderss</label>
-        <input
-          name='lastName'
-          type="text"
-          className="section__popup-input"
-          value={adress}
-          onChange={e => setAdress(e.target.value)}
-        />
-      </div>
+      <PopupInput
+        label='Phone'
+        name='phone'
+        value={phone}
+        change={e => setPhone(e.target.value)}
+      />
+      <PopupInput
+        label='Email'
+        name='email'
+        value={email}
+        change={e => setEmail(e.target.value)}
+      />
+      <PopupInput
+        label='Street Adress'
+        name='streetAddress'
+        value={adress}
+        change={e => setAdress(e.target.value)}
+      />
       <div className="section__popup-formGroup">
-        <div className="section__popup-inputContainer">
-          <label htmlFor="section__popup-input" className='section__popup-label'>City</label>
-          <input
-            name='city'
-            type="text"
-            className="section__popup-input"
-            value={city}
-            onChange={e => setCity(e.target.value)}
-          />
-        </div>
-        <div className="section__popup-inputContainer">
-          <label htmlFor="section__popup-input" className='section__popup-label'>State</label>
-          <input
-            name='state'
-            type="text"
-            className="section__popup-input"
-            value={region}
-            onChange={e => setRegion(e.target.value)}
-          />
-        </div>
-        <div className="section__popup-inputContainer">
-          <label htmlFor="section__popup-input" className='section__popup-label'>Country</label>
-          <input
-            name='city'
-            type="text"
-            className="section__popup-input"
-            value={country}
-            onChange={e => setCountry(e.target.value)}
-          />
-        </div>
+        <PopupInput
+          label='City'
+          name='city'
+          value={city}
+          change={e => setCity(e.target.value)}
+        />
+        <PopupInput
+          label='State'
+          name='state'
+          value={region}
+          change={e => setRegion(e.target.value)}
+        />
+        <PopupInput
+          label='Country'
+          name='country'
+          value={country}
+          change={e => setCountry(e.target.value)}
+        />
       </div>
-      <div className="section__popup-inputContainer">
-          <label htmlFor="section__popup-input" className='section__popup-label'>Zip/Postal Code</label>
-          <input
-            name='city'
-            type="text"
-            className="section__popup-input"
-            value={postZip}
-            onChange={e => setPostZip(e.target.value)}
-          />
-        </div>
+      <PopupInput
+        label='Zip/Postal Code'
+        name='postZip'
+        value={postZip}
+        change={e => setPostZip(e.target.value)}
+      />
     </SectionPopup>
   )
 }

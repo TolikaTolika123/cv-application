@@ -1,18 +1,12 @@
 import React, { useState } from 'react'
-import SectionPopup from '../../UI/SectionPopup'
-import FormItem from '../../UI/FormItem';
+import SectionPopup from '../../UI/Popup/SectionPopup'
+import EducationPopupItem from './EducationPopupItem';
 import uniqid from 'uniqid';
 
 const CVEducationPopup = ({ states, setStates }) => {
   const [education, setEducation] = useState(structuredClone(states.education));
-  console.log(states.education[0])
-  console.log(education[0])
   const removeItem = key => {
-    setEducation(education.filter(item => {
-      console.log(key);
-      console.log(item.id)
-      return item.id !== key
-    }))
+    setEducation(education.filter(item => item.id !== key));
   }
   return (
     <SectionPopup
@@ -23,10 +17,12 @@ const CVEducationPopup = ({ states, setStates }) => {
       setChangedStates={{ setEducation }}
     >
       {education.map((elem, i) => 
-        <FormItem key={elem.id} elem={elem} i={i} education={education} removeItem={removeItem} />
+        <EducationPopupItem key={elem.id} id={elem.id} elem={elem} i={i} education={education} removeItem={removeItem} />
       )}
 
-      <button type='button' onClick={() => setEducation([...education, { subject: '', level: '', name: '', location: '', time: '' }])}>Add</button>
+      <button className='section__popup-add' type='button' onClick={() => {
+        setEducation([...education, { subject: '', level: '', name: '', location: '', time: '', id: uniqid() }])
+        }}>Add</button>
     </SectionPopup>
   )
 }
