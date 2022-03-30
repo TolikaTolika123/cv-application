@@ -1,8 +1,9 @@
 import React from 'react';
 import OptionsBtn from './UI/OptionsBtn';
 import ToggleSection from './UI/ToggleSection';
+import defaultImg from '../images/default-image.svg'
 
-const CVOptions = ({sections, setSections}) => {
+const CVOptions = ({sections, setSections, reset}) => {
   return (
     <div className='cv__options'>
       <div className="cv__options-sections">
@@ -13,7 +14,10 @@ const CVOptions = ({sections, setSections}) => {
         <ToggleSection name='Reference' setState={setSections.setReference} state={sections.reference}/>
       </div>
       <div className="cv__options-buttons">
-        <OptionsBtn text="Reset" />
+        <OptionsBtn 
+        text="Reset" 
+        onClick={reset}
+        />
         <OptionsBtn text="Print PDF" />
       </div>
     </div>

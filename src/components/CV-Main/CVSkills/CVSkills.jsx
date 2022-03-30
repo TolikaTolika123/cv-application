@@ -4,15 +4,8 @@ import SkillItem from '../../UI/SkillItem'
 import EditBtn from '../../UI/EditBtn'
 import CVSkillsPopup from './CVSkillsPopup'
 
-const CVSkills = () => {
+const CVSkills = ({skills, setSkills}) => {
   const [modal, setModal] = useState(false);
-  const [skills, setSkills] = useState([
-    { skill: 'Adobe Photoshop', proficiency: 80, id: uniqid() },
-    { skill: 'Adobe InDesign', proficiency: 80, id: uniqid() },
-    { skill: 'Adobe Illustartor', proficiency: 80, id: uniqid() },
-    { skill: 'Microsoft Word', proficiency: 80, id: uniqid() },
-    { skill: 'Wordpress', proficiency: 80, id: uniqid() },
-  ])
 
   const states = { modal, skills };
   const setStates = { setModal, setSkills };

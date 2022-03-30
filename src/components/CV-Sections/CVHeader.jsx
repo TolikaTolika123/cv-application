@@ -2,11 +2,11 @@ import React from 'react'
 import CVImage from '../CV-Header/CVImage'
 import CVOverview from '../CV-Header/CVOverview/CVOverview'
 
-const CVHeader = () => {
+const CVHeader = ({cv, setCv}) => {
   return (
     <div className='cv__header'>
-      <CVImage />
-      <CVOverview />
+      <CVImage image={cv.image} setImage={setCv.setImage}/>
+      <CVOverview  overview={cv.overview} setOverview={setCv.setOverview}/>
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const OptionsBtn = ({text}) => {
+const OptionsBtn = ({text, onClick}) => {
   return (
-    <button className='options-btn'>{text}</button>
+    <button className='options-btn' onClick={onClick}>{text}</button>
   )
 }
 

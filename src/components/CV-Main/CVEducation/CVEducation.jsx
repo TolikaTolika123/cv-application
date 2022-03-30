@@ -4,12 +4,8 @@ import uniqid from 'uniqid';
 import EditBtn from '../../UI/EditBtn'
 import CVEducationPopup from './CVEducationPopup';
 
-const CVEducation = () => {
+const CVEducation = ({education, setEducation}) => {
   const [modal, setModal] = useState(false);
-  const [education, setEducation] = useState([
-    {subject: 'Computer Science', level: 'bachelor', name: 'University Name Here', location: 'Location', time: '2007-2010', id: uniqid()},
-    {subject: 'Computer Science', level: 'master', name: 'University Name Here', location: 'Location', time: '2010-2012', id: uniqid()},
-  ]);
   
    const states = {modal, education};
    const setStates = {setModal, setEducation};

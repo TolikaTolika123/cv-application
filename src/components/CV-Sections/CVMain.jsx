@@ -4,7 +4,7 @@ import CVEducation from '../CV-Main/CVEducation/CVEducation'
 import CVSkills from '../CV-Main/CVSkills/CVSkills'
 import CVExperience from '../CV-Main/CVExperience/CVExperience'
 
-const CVMain = ({sections}) => {
+const CVMain = ({sections, cv, setCv}) => {
   const changeableClasses = []
 
   if (sections.education) changeableClasses.push('education')
@@ -13,10 +13,10 @@ const CVMain = ({sections}) => {
 
   return (
     <div className={`cv__main ${changeableClasses.join(' ')}`}>
-      <CVContact />
-      {sections.education && <CVEducation />}
-      {sections.skills && <CVSkills />}
-      {sections.experience && <CVExperience />}
+      <CVContact contact={cv.contact} setContact={setCv.setContact}/>
+      {sections.education && <CVEducation  education={cv.education} setEducation={setCv.setEducation}/>}
+      {sections.skills && <CVSkills skills={cv.skills} setSkills={setCv.setSkills} />}
+      {sections.experience && <CVExperience experienceList={cv.experienceList} setExperienceList={setCv.setExperienceList} />}
     </div>
   )
 }

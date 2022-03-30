@@ -3,12 +3,12 @@ import CVHeader from './CV-Sections/CVHeader'
 import CVMain from './CV-Sections/CVMain'
 import CVFooter from './CV-Sections/CVFooter'
 
-const CV = ({sections}) => {
+const CV = ({sections, cv, setCv}) => {
   return (
     <div className='cv'>
-      <CVHeader/>
-      <CVMain sections={sections}/>
-      <CVFooter sections={sections}/>
+      <CVHeader cv={cv} setCv={setCv}/>
+      <CVMain sections={sections} cv={cv} setCv={setCv}/>
+      <CVFooter sections={sections} cv={cv} setCv={setCv}/>
     </div>
   )
 }

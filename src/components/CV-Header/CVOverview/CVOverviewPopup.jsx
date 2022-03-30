@@ -10,10 +10,10 @@ const CVOverviewPopup = ({ states, setStates }) => {
   const [about, setAbout] = useState(states.about);
   const [facebook, setFacebook] = useState(states.facebook);
   const [linkedin, setLinkedin] = useState(states.linkedin);
-
+  
   const changedStates = { firstName, lastName, profession, about, facebook, linkedin };
   const setChangedStates = { setFirstName, setLastName, setProfession, setAbout, setFacebook, setLinkedin }
-
+  
   return (
     <SectionPopup
       title='Introduce yourself'

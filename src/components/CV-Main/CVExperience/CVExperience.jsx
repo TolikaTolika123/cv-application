@@ -4,42 +4,8 @@ import uniqid from 'uniqid';
 import EditBtn from '../../UI/EditBtn'
 import CVExperiencePopup from './CVExperiencePopup';
 
-const CVExperience = () => {
+const CVExperience = ({experienceList, setExperienceList}) => {
   const [modal, setModal] = useState(false);
-  const [experienceList, setExperienceList] = useState([
-    {
-      profession: 'You Profesion Here',
-      name: 'Company name here',
-      location: 'location',
-      time: 'years',
-      about: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum pariatur saepe laboriosam atque quibusdam eos perspiciatis amet voluptas accusantium officia necessitatibus rem, sequi beatae eligendi praesentium voluptatem voluptatibus, ullam eveniet!',
-      id: uniqid()
-    },
-    {
-      profession: 'You Profesion Here',
-      name: 'Company name here',
-      location: 'location',
-      time: 'years',
-      about: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum pariatur saepe laboriosam atque quibusdam eos perspiciatis amet voluptas accusantium officia necessitatibus rem, sequi beatae eligendi praesentium voluptatem voluptatibus, ullam eveniet!',
-      id: uniqid()
-    },
-    {
-      profession: 'You Profesion Here',
-      name: 'Company name here',
-      location: 'location',
-      time: 'years',
-      about: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum pariatur saepe laboriosam atque quibusdam eos perspiciatis amet voluptas accusantium officia necessitatibus rem, sequi beatae eligendi praesentium voluptatem voluptatibus, ullam eveniet!',
-      id: uniqid()
-    },
-    {
-      profession: 'You Profesion Here',
-      name: 'Company name here',
-      location: 'location',
-      time: 'years',
-      about: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum pariatur saepe laboriosam atque quibusdam eos perspiciatis amet voluptas accusantium officia necessitatibus rem, sequi beatae eligendi praesentium voluptatem voluptatibus, ullam eveniet!',
-      id: uniqid()
-    },
-  ]);
 
   const states = { modal, experienceList };
   const setStates = { setModal, setExperienceList };
