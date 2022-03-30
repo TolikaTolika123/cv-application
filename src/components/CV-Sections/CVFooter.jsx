@@ -2,11 +2,11 @@ import React from 'react'
 import CVAward from '../CV-Footer/CVAward/CVAward'
 import CVReference from '../CV-Footer/CVReference/CVReference'
 
-const CVFooter = () => {
+const CVFooter = ({sections}) => {
   return (
     <div className='cv__footer'>
-      <CVAward />
-      <CVReference />
+      {sections.award && <CVAward />}
+      {sections.reference && <CVReference />}
     </div>
   )
 }
