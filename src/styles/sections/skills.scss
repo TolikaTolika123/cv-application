@@ -10,6 +10,7 @@
     @include regularText;
     margin-bottom: 20px;
     display: flex;
+    gap: 5px;
     justify-content: space-between;
     align-items: center;
     progress {

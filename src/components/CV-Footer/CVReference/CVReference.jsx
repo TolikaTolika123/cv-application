@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import uniqid from 'uniqid'
 import ReferenceItem from '../../UI/ReferenceItem'
 import EditBtn from '../../UI/EditBtn'
 import CVReferencePopup from './CVReferencePopup'

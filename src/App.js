@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './styles/index.scss';
 import CV from './components/CV';
 import CVOptions from './components/CVOptions';
-import defaultImg from './images/default-image.svg'
+import defaultImg from './images/default-image.svg';
 
 function App() {
+  const componentRef = useRef();
+
   // Sections
 
   const [experience, setExperience] = useState(true);
@@ -57,8 +59,8 @@ function App() {
 
   const cv = {
     image,
-    overview: {firstName, lastName, profession, about, facebook, linkedin},
-    contact: { phone, email, adress, city, region, postZip, country},
+    overview: { firstName, lastName, profession, about, facebook, linkedin },
+    contact: { phone, email, adress, city, region, postZip, country },
     education: cvEducation,
     skills: cvSkills,
     experienceList,
@@ -68,12 +70,12 @@ function App() {
 
   const setCv = {
     setImage,
-    setOverview: { setFirstName, setLastName, setProfession, setAbout, setFacebook, setLinkedin},
-    setContact: { setPhone, setEmail, setAdress, setCity, setRegion, setPostZip, setCountry},
+    setOverview: { setFirstName, setLastName, setProfession, setAbout, setFacebook, setLinkedin },
+    setContact: { setPhone, setEmail, setAdress, setCity, setRegion, setPostZip, setCountry },
     setEducation: setCvEducation,
     setSkills: setCvSkills,
     setExperienceList,
-    setAward: {setAward: setAwardTitle, setCorp: setAwardCorp, setAbout: setAboutAward},
+    setAward: { setAward: setAwardTitle, setCorp: setAwardCorp, setAbout: setAboutAward },
     setReferences
   }
 
@@ -107,13 +109,14 @@ function App() {
 
     setReferences([]);
   }
-  
+
   return (
     <div className="App">
       <h1>CV</h1>
       <div className="cv__container">
-        <CV setCv={setCv} cv={cv} sections={sections} />
-        <CVOptions reset={reset} sections={sections} setSections={setSections} />
+        <CV setCv={setCv} cv={cv} sections={sections} ref={componentRef}/>
+        <CVOptions componentRef={componentRef} reset={reset} sections={sections} setSections={setSections} />
+        
       </div>
     </div>
   );

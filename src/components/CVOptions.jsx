@@ -1,9 +1,9 @@
 import React from 'react';
 import OptionsBtn from './UI/OptionsBtn';
 import ToggleSection from './UI/ToggleSection';
-import defaultImg from '../images/default-image.svg'
+import ReactToPrint from 'react-to-print';
 
-const CVOptions = ({sections, setSections, reset}) => {
+const CVOptions = ({sections, setSections, reset, componentRef}) => {
   return (
     <div className='cv__options'>
       <div className="cv__options-sections">
@@ -18,7 +18,11 @@ const CVOptions = ({sections, setSections, reset}) => {
         text="Reset" 
         onClick={reset}
         />
-        <OptionsBtn text="Print PDF" />
+        
+        <ReactToPrint
+        trigger={() => <OptionsBtn text="Print PDF" />}
+        content={() => componentRef.current}
+      />
       </div>
     </div>
   )

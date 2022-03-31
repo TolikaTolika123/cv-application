@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import uniqid from 'uniqid'
 import SkillItem from '../../UI/SkillItem'
 import EditBtn from '../../UI/EditBtn'
 import CVSkillsPopup from './CVSkillsPopup'

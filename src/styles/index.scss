@@ -51,11 +51,11 @@ body {
 }
 
 .cv {
-  flex: 1 1 0;
   background-color: #fff;
   box-shadow: $regularShadow;
   text-align-last: left;
   padding: 30px;
+  width: 950px;
   &__options {
     padding: 10px 0;
   }
@@ -288,5 +288,17 @@ body {
       transition: 0.4s;
       border-radius: 50%;
     }
+  }
+}
+
+@media (max-width: 1270px) {
+  .cv__container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+  }
+  .cv__options {
+    display: flex;
+    gap: 75px;
   }
 }

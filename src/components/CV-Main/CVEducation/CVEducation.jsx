@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import EducationItem from '../../UI/EducationItem'
-import uniqid from 'uniqid';
 import EditBtn from '../../UI/EditBtn'
 import CVEducationPopup from './CVEducationPopup';
 
