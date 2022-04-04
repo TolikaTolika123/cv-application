@@ -6,7 +6,7 @@ import CVExperiencePopup from './CVExperiencePopup';
 
 const CVExperience = ({experienceList, setExperienceList}) => {
   const [modal, setModal] = useState(false);
-
+  
   const states = { modal, experienceList };
   const setStates = { setModal, setExperienceList };
   return (

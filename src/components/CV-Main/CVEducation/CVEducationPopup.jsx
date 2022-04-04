@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionPopup from '../../UI/Popup/SectionPopup'
 import EducationPopupItem from './EducationPopupItem';
 import uniqid from 'uniqid';
 
 const CVEducationPopup = ({ states, setStates }) => {
   const [education, setEducation] = useState(structuredClone(states.education));
+  useEffect(() => {
+    setEducation(structuredClone(states.education));
+  }, [states.education])
   const removeItem = key => {
     setEducation(education.filter(item => item.id !== key));
   }

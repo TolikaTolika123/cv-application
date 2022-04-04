@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionPopup from '../../UI/Popup/SectionPopup'
 import PopupInput from '../../UI/Popup/PopupInput';
 
@@ -10,6 +10,16 @@ const CVContactPopup = ({ states, setStates }) => {
   const [region, setRegion] = useState(states.region);
   const [postZip, setPostZip] = useState(states.postZip);
   const [country, setCountry] = useState(states.country);
+
+  useEffect(() => {
+    setPhone(states.phone);
+    setEmail(states.email);
+    setAdress(states.adress);
+    setCity(states.city);
+    setRegion(states.region);
+    setPostZip(states.postZip);
+    setCountry(states.country);
+  }, [states])
 
   const changedStates = { phone, email, adress, city, region, postZip, country };
   const setChangedStates = { setPhone, setEmail, setAdress, setCity, setRegion, setPostZip, setCountry };

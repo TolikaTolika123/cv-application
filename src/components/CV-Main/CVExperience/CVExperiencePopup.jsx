@@ -1,10 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import SectionPopup from '../../UI/Popup/SectionPopup'
 import ExperiencePopupItem from './ExperiencePopupItem';
 import uniqid from 'uniqid';
 
 const CVExperiencePopup = ({states, setStates}) => {
   const [experienceList, setExperienceList] = useState(structuredClone(states.experienceList));
+
+  useEffect(() => {
+    setExperienceList(structuredClone(states.experienceList));
+  }, [states.experienceList]);
 
   const removeItem = key => {
     setExperienceList(experienceList.filter(item => item.id !== key));

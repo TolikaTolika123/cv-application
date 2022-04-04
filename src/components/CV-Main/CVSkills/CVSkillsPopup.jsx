@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionPopup from '../../UI/Popup/SectionPopup'
 import SkillsPopupItem from './SkillsPopupItem';
 import uniqid from 'uniqid';
 
 const CVSkillsPopup = ({states, setStates}) => {
   const [skills, setSkills] = useState(structuredClone(states.skills));
+
+  useEffect(() => {
+    setSkills(structuredClone(states.skills));
+  }, [states.skills]);
+  
 
   const removeItem = key => {
     setSkills(skills.filter(item => item.id !== key));

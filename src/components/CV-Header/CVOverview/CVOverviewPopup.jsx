@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionPopup from '../../UI/Popup/SectionPopup'
 import PopupInput from '../../UI/Popup/PopupInput';
 import PopupTextarea from '../../UI/Popup/PopupTextarea';
@@ -10,6 +10,15 @@ const CVOverviewPopup = ({ states, setStates }) => {
   const [about, setAbout] = useState(states.about);
   const [facebook, setFacebook] = useState(states.facebook);
   const [linkedin, setLinkedin] = useState(states.linkedin);
+
+  useEffect(() => {
+    setFirstName(states.firstName);
+    setLastName(states.lastName);
+    setProfession(states.profession);
+    setAbout(states.about);
+    setFacebook(states.facebook);
+    setLinkedin(states.linkedin);
+  }, [states])
   
   const changedStates = { firstName, lastName, profession, about, facebook, linkedin };
   const setChangedStates = { setFirstName, setLastName, setProfession, setAbout, setFacebook, setLinkedin }

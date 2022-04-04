@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import SectionPopup from '../../UI/Popup/SectionPopup'
 import PopupInput from '../../UI/Popup/PopupInput'
 import PopupTextarea from '../../UI/Popup/PopupTextarea'
@@ -7,6 +7,12 @@ const CVAwardPopup = ({states, setStates}) => {
   const [award, setAward] = useState(states.award);
   const [corp, setCorp] = useState(states.corp);
   const [about, setAbout] = useState(states.about);
+
+  useEffect(() => {
+    setAward(states.award);
+    setCorp(states.corp);
+    setAbout(states.about);
+  }, [states])
 
   const changedStates = {award, corp, about};
   const setChangedStates = {setAward, setCorp, setAbout};
