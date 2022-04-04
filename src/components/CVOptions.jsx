@@ -2,8 +2,40 @@ import React from 'react';
 import OptionsBtn from './UI/OptionsBtn';
 import ToggleSection from './UI/ToggleSection';
 import ReactToPrint from 'react-to-print';
+import defaultImg from '../images/default-image.svg';
 
-const CVOptions = ({sections, setSections, reset, componentRef}) => {
+
+const CVOptions = ({sections, setSections, setCv, componentRef}) => {
+  const reset = () => {
+    setCv.setImage(defaultImg)
+
+    setCv.setOverview.setFirstName('');
+    setCv.setOverview.setLastName('');
+    setCv.setOverview.setProfession('');
+    setCv.setOverview.setAbout('');
+    setCv.setOverview.setFacebook('');
+    setCv.setOverview.setLinkedin('');
+
+    setCv.setContact.setPhone('');
+    setCv.setContact.setEmail('');
+    setCv.setContact.setAdress('');
+    setCv.setContact.setCity('');
+    setCv.setContact.setRegion('');
+    setCv.setContact.setPostZip('');
+    setCv.setContact.setCountry('');
+
+    setCv.setEducation([]);
+
+    setCv.setSkills([]);
+
+    setCv.setExperienceList([]);
+
+    setCv.setAward.setAward('');
+    setCv.setAward.setCorp('');
+    setCv.setAward.setAbout('');
+
+    setCv.setReferences([]);
+  }
   return (
     <div className='cv__options'>
       <div className="cv__options-sections">

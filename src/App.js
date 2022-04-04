@@ -79,44 +79,12 @@ function App() {
     setReferences
   }
 
-  const reset = () => {
-    setImage(defaultImg)
-
-    setFirstName('');
-    setLastName('');
-    setProfession('');
-    setAbout('');
-    setFacebook('');
-    setLinkedin('');
-
-    setPhone('');
-    setEmail('');
-    setAdress('');
-    setCity('');
-    setRegion('');
-    setPostZip('');
-    setCountry('');
-
-    setCvEducation([]);
-
-    setCvSkills([]);
-
-    setExperienceList([]);
-
-    setAwardTitle('');
-    setAwardCorp('');
-    setAboutAward('');
-
-    setReferences([]);
-  }
-
   return (
     <div className="App">
       <h1>CV</h1>
       <div className="cv__container">
         <CV setCv={setCv} cv={cv} sections={sections} ref={componentRef}/>
-        <CVOptions componentRef={componentRef} reset={reset} sections={sections} setSections={setSections} />
-        
+        <CVOptions componentRef={componentRef} setCv={setCv} sections={sections} setSections={setSections} />
       </div>
     </div>
   );
