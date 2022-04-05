@@ -3,7 +3,7 @@ import SectionPopup from '../../UI/Popup/SectionPopup'
 import ExperiencePopupItem from './ExperiencePopupItem';
 import uniqid from 'uniqid';
 
-const CVExperiencePopup = ({states, setStates}) => {
+const CVExperiencePopup = ({modal, setModal, states, setStates}) => {
   const [experienceList, setExperienceList] = useState(structuredClone(states.experienceList));
 
   useEffect(() => {
@@ -17,8 +17,7 @@ const CVExperiencePopup = ({states, setStates}) => {
   return (
     <SectionPopup
       title='What are your relevant experiences?'
-      states={states}
-      setStates={setStates}
+      {...{states, setStates, modal, setModal}}
       changedStates={{ experienceList }}
       setChangedStates={{ setExperienceList }}
     >

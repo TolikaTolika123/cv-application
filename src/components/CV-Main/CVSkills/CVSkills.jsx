@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import SkillItem from '../../UI/SkillItem'
 import EditBtn from '../../UI/EditBtn'
 import CVSkillsPopup from './CVSkillsPopup'
+import { CVContext } from '../../../context'
 
-const CVSkills = ({skills, setSkills}) => {
+const CVSkills = () => {
   const [modal, setModal] = useState(false);
+  const {cv: {skills},  setCv:{setSkills}} = useContext(CVContext);
 
-  const states = { modal, skills };
-  const setStates = { setModal, setSkills };
+  const states = {  skills };
+  const setStates = { setSkills };
 
 
   return (
@@ -19,7 +21,7 @@ const CVSkills = ({skills, setSkills}) => {
         ))}
       </ul>
       <EditBtn />
-      <CVSkillsPopup states={states} setStates={setStates}/>
+      <CVSkillsPopup {...{modal, setModal, states, setStates}}/>
     </div>
   )
 }

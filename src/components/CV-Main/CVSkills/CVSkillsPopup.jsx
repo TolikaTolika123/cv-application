@@ -3,7 +3,7 @@ import SectionPopup from '../../UI/Popup/SectionPopup'
 import SkillsPopupItem from './SkillsPopupItem';
 import uniqid from 'uniqid';
 
-const CVSkillsPopup = ({states, setStates}) => {
+const CVSkillsPopup = ({modal, setModal, states, setStates}) => {
   const [skills, setSkills] = useState(structuredClone(states.skills));
 
   useEffect(() => {
@@ -17,8 +17,7 @@ const CVSkillsPopup = ({states, setStates}) => {
   return (
     <SectionPopup
       title='What are your stand-out skills?'
-      states={states}
-      setStates={setStates}
+      {...{states, setStates, modal, setModal}}
       changedStates={{ skills }}
       setChangedStates={{ setSkills }}
     >

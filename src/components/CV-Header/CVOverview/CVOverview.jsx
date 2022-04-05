@@ -1,30 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import SocialItem from '../../UI/SocialItem'
 import EditBtn from '../../UI/EditBtn'
 import CVOverviewPopup from './CVOverviewPopup'
+import { CVContext } from '../../../context'
 
-const CVOverview = ({ overview, setOverview }) => {
+const CVOverview = () => {
   const [modal, setModal] = useState(false);
 
-  const states = {
-    modal,
-    firstName: overview.firstName,
-    lastName: overview.lastName,
-    profession: overview.profession,
-    about: overview.about,
-    facebook: overview.facebook,
-    linkedin: overview.linkedin
-  };
-
-  const setStates = {
-    setModal,
-    setFirstName: setOverview.setFirstName,
-    setLastName: setOverview.setLastName,
-    setProfession: setOverview.setProfession,
-    setAbout: setOverview.setAbout,
-    setFacebook: setOverview.setFacebook,
-    setLinkedin: setOverview.setLinkedin
-  };
+  const {cv: {overview},  setCv:{setOverview}} = useContext(CVContext);
 
   return (
     <div onClick={() => { setModal(true) }} className='cv__overview section'>
@@ -38,7 +21,7 @@ const CVOverview = ({ overview, setOverview }) => {
         <SocialItem socialNetwork='Linkedin' username={overview.linkedin} />
       </div>
       <EditBtn />
-      <CVOverviewPopup states={states} setStates={setStates} overview={overview} />
+      <CVOverviewPopup {...{overview, setOverview, modal, setModal}} />
     </div>
   )
 }

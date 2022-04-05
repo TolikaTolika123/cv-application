@@ -3,7 +3,7 @@ import SectionPopup from '../../UI/Popup/SectionPopup'
 import EducationPopupItem from './EducationPopupItem';
 import uniqid from 'uniqid';
 
-const CVEducationPopup = ({ states, setStates }) => {
+const CVEducationPopup = ({modal, setModal, states, setStates }) => {
   const [education, setEducation] = useState(structuredClone(states.education));
   useEffect(() => {
     setEducation(structuredClone(states.education));
@@ -14,8 +14,7 @@ const CVEducationPopup = ({ states, setStates }) => {
   return (
     <SectionPopup
       title='Where did you study?'
-      states={states}
-      setStates={setStates}
+      {...{states, setStates, modal, setModal}}
       changedStates={{ education }}
       setChangedStates={{ setEducation }}
     >

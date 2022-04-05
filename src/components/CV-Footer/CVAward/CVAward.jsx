@@ -1,13 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { CVContext } from '../../../context'
 import AwardItem from '../../UI/AwardItem'
 import EditBtn from '../../UI/EditBtn'
 import CVAwardPopup from './CVAwardPopup'
 
-const CVAward = ({award, setAward}) => {
+const CVAward = () => {
   const [modal, setModal] = useState(false)
+  const {cv: {award},  setCv:{setAward}} = useContext(CVContext);
 
-  const states = {modal, award: award.award, corp: award.corp, about: award.about};
-  const setStates = {setModal, setAward: setAward.setAward, setCorp: setAward.setCorp, setAbout: setAward.setAbout};
 
   return (
     <div onClick={() => {setModal(true)}} className='cv__award section'>
@@ -18,7 +18,7 @@ const CVAward = ({award, setAward}) => {
         about={award.about}
       />
       <EditBtn />
-      <CVAwardPopup states={states} setStates={setStates}/>
+      <CVAwardPopup {...{modal, setModal, award, setAward}}/>
     </div>
   )
 }

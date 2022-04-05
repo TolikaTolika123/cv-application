@@ -1,14 +1,16 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import ExperienceItem from '../../UI/ExperienceItem'
 import uniqid from 'uniqid';
 import EditBtn from '../../UI/EditBtn'
 import CVExperiencePopup from './CVExperiencePopup';
+import { CVContext } from '../../../context';
 
-const CVExperience = ({experienceList, setExperienceList}) => {
+const CVExperience = () => {
   const [modal, setModal] = useState(false);
+  const {cv: {experienceList},  setCv:{setExperienceList}} = useContext(CVContext);
   
-  const states = { modal, experienceList };
-  const setStates = { setModal, setExperienceList };
+  const states = {  experienceList };
+  const setStates = { setExperienceList };
   return (
     <div onClick={() => {setModal(true)}} className='cv__experience section'>
       <h3 className="experience__title regular__title">Work experience</h3>
@@ -25,7 +27,7 @@ const CVExperience = ({experienceList, setExperienceList}) => {
         ))}
       </ul>
       <EditBtn />
-      <CVExperiencePopup states={states} setStates={setStates}/>
+      <CVExperiencePopup {...{modal, setModal, states, setStates}}/>
     </div>
   )
 }

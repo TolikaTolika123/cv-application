@@ -1,32 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { CVContext } from '../../../context'
 import ContactItem from '../../UI/ContactItem'
 import EditBtn from '../../UI/EditBtn'
 import CVContactPopup from './CVContactPopup'
 
-const CVContact = ({ contact, setContact }) => {
+const CVContact = () => {
   const [modal, setModal] = useState(false);
-  
-  const states = {
-    modal,
-    phone: contact.phone,
-    email: contact.email,
-    adress: contact.adress,
-    region: contact.region,
-    city: contact.city,
-    postZip: contact.postZip,
-    country: contact.country
-  };
-
-  const setStates = {
-    setModal,
-    setPhone: setContact.setPhone,
-    setEmail: setContact.setEmail,
-    setAdress: setContact.setAdress,
-    setCity: setContact.setCity,
-    setRegion: setContact.setRegion,
-    setPostZip: setContact.setPostZip,
-    setCountry: setContact.setCountry
-  };
+  const {cv: {contact},  setCv:{setContact}} = useContext(CVContext);
 
   const fullAdress = [contact.adress, contact.city, contact.region, contact.postZip, contact.country].join(', ');
 
@@ -39,7 +19,7 @@ const CVContact = ({ contact, setContact }) => {
         <ContactItem img='pin' content={fullAdress} />
       </ul>
       <EditBtn />
-      <CVContactPopup states={states} setStates={setStates} />
+      <CVContactPopup {...{modal, setModal, contact, setContact}} />
     </div>
   )
 }

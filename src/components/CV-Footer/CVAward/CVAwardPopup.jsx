@@ -3,16 +3,16 @@ import SectionPopup from '../../UI/Popup/SectionPopup'
 import PopupInput from '../../UI/Popup/PopupInput'
 import PopupTextarea from '../../UI/Popup/PopupTextarea'
 
-const CVAwardPopup = ({states, setStates}) => {
-  const [award, setAward] = useState(states.award);
-  const [corp, setCorp] = useState(states.corp);
-  const [about, setAbout] = useState(states.about);
+const CVAwardPopup = ({modal, setModal, award: awardObj, setAward: setAwardObj}) => {
+  const [award, setAward] = useState(awardObj.award);
+  const [corp, setCorp] = useState(awardObj.corp);
+  const [about, setAbout] = useState(awardObj.about);
 
   useEffect(() => {
-    setAward(states.award);
-    setCorp(states.corp);
-    setAbout(states.about);
-  }, [states])
+    setAward(awardObj.award);
+    setCorp(awardObj.corp);
+    setAbout(awardObj.about);
+  }, [awardObj])
 
   const changedStates = {award, corp, about};
   const setChangedStates = {setAward, setCorp, setAbout};
@@ -20,10 +20,9 @@ const CVAwardPopup = ({states, setStates}) => {
   return (
     <SectionPopup
       title='What is your greatest award'
-      states={states}
-      setStates={setStates}
-      changedStates={changedStates}
-      setChangedStates={setChangedStates}
+      states={awardObj}
+      setStates={setAwardObj}
+      {...{modal, setModal, changedStates, setChangedStates}}
     >
       <PopupInput
         label='Award'

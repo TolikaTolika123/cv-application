@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CVContext } from '../../context'
 
-const CVImage = ({image, setImage}) => {
+const CVImage = () => {
+  const {cv: {image},  setCv:{setImage}} = useContext(CVContext);
+
   return (
     <div className="cv__image">
       <img src={image} alt="Not found" />

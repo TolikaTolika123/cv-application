@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import ReferenceItem from '../../UI/ReferenceItem'
 import EditBtn from '../../UI/EditBtn'
 import CVReferencePopup from './CVReferencePopup'
+import { CVContext } from '../../../context'
 
-const CVReference = ({references, setReferences}) => {
+const CVReference = () => {
   const [modal, setModal] = useState(false)
+  const {cv: {references},  setCv:{setReferences}} = useContext(CVContext);
 
-  const states = {modal, references};
-  const setStates = {setModal, setReferences}
+  const states = { references };
+  const setStates = { setReferences }
 
   return (
     <div onClick={() => {setModal(true)}} className='cv__reference section'>
@@ -18,7 +20,7 @@ const CVReference = ({references, setReferences}) => {
         ))}
       </div>
       <EditBtn />
-      <CVReferencePopup states={states} setStates={setStates}/>
+      <CVReferencePopup {...{modal, setModal, states, setStates}}/>
     </div>
   )
 }

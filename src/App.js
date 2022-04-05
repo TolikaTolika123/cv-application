@@ -3,9 +3,10 @@ import './styles/index.scss';
 import CV from './components/CV';
 import CVOptions from './components/CVOptions';
 import defaultImg from './images/default-image.svg';
+import { CVContext } from './context';
 
 function App() {
-  const componentRef = useRef();
+  const cvRef = useRef();
 
   // Sections
 
@@ -17,8 +18,6 @@ function App() {
 
   const sections = { experience, education, skills, award, reference };
   const setSections = { setEducation, setExperience, setSkills, setAward, setReference }
-
-  // Content
 
   // image
   const [image, setImage] = useState(defaultImg);
@@ -80,13 +79,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>CV</h1>
-      <div className="cv__container">
-        <CV setCv={setCv} cv={cv} sections={sections} ref={componentRef}/>
-        <CVOptions componentRef={componentRef} setCv={setCv} sections={sections} setSections={setSections} />
+    <CVContext.Provider value={{cv, setCv}}>
+      <div className="App">
+        <h1>CV</h1>
+        <div className="cv__container">
+          <CV sections={sections} ref={cvRef} />
+          <CVOptions cvRef={cvRef} sections={sections} setSections={setSections} />
+        </div>
       </div>
-    </div>
+    </CVContext.Provider>
+
   );
 }
 

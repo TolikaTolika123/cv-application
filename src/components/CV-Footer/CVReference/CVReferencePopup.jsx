@@ -3,7 +3,7 @@ import SectionPopup from '../../UI/Popup/SectionPopup'
 import ReferencePopupItem from './ReferencePopupItem'
 import uniqid from 'uniqid';
 
-const CVReferencePopup = ({states, setStates}) => {
+const CVReferencePopup = ({modal, setModal, states, setStates}) => {
   const [references, setReferences] = useState(structuredClone(states.references));
 
   useEffect(() => {
@@ -17,8 +17,7 @@ const CVReferencePopup = ({states, setStates}) => {
   return (
     <SectionPopup
       title='Reference'
-      states={states}
-      setStates={setStates}
+      {...{states, setStates, modal, setModal}}
       changedStates={{ references }}
       setChangedStates={{ setReferences }}
     >

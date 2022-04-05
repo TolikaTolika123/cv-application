@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import OptionsBtn from './UI/OptionsBtn';
 import ToggleSection from './UI/ToggleSection';
 import ReactToPrint from 'react-to-print';
 import defaultImg from '../images/default-image.svg';
+import { CVContext } from '../context';
 
 
-const CVOptions = ({sections, setSections, setCv, componentRef}) => {
+const CVOptions = ({sections, setSections, cvRef}) => {
+  const {setCv} = useContext(CVContext);
+  
   const reset = () => {
     setCv.setImage(defaultImg)
 
@@ -53,7 +56,7 @@ const CVOptions = ({sections, setSections, setCv, componentRef}) => {
         
         <ReactToPrint
         trigger={() => <OptionsBtn text="Print PDF" />}
-        content={() => componentRef.current}
+        content={() => cvRef.current}
       />
       </div>
     </div>

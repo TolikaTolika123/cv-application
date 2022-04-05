@@ -1,15 +1,15 @@
 import React from 'react'
 
-const SectionPopup = ({ title, children, states, setStates, changedStates, setChangedStates }) => {
+const SectionPopup = ({ title, children, states, setStates, changedStates, setChangedStates, modal, setModal }) => {
   const rootClasses = ['section__popup'];
-  if (states.modal) {
+  if (modal) {
     rootClasses.push('active');
     document.body.style.overflow = "hidden"
   }
 
   function hidePopup(e) {
     e.stopPropagation();
-    setStates.setModal(false);
+    setModal(false);
     document.body.style.overflow = "auto"
   }
 

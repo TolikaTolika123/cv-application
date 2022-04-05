@@ -2,34 +2,33 @@ import React, { useState, useEffect } from 'react'
 import SectionPopup from '../../UI/Popup/SectionPopup'
 import PopupInput from '../../UI/Popup/PopupInput';
 
-const CVContactPopup = ({ states, setStates }) => {
-  const [phone, setPhone] = useState(states.phone);
-  const [email, setEmail] = useState(states.email);
-  const [adress, setAdress] = useState(states.adress);
-  const [city, setCity] = useState(states.city);
-  const [region, setRegion] = useState(states.region);
-  const [postZip, setPostZip] = useState(states.postZip);
-  const [country, setCountry] = useState(states.country);
+const CVContactPopup = ({ contact, setContact, modal, setModal }) => {
+  const [phone, setPhone] = useState(contact.phone);
+  const [email, setEmail] = useState(contact.email);
+  const [adress, setAdress] = useState(contact.adress);
+  const [city, setCity] = useState(contact.city);
+  const [region, setRegion] = useState(contact.region);
+  const [postZip, setPostZip] = useState(contact.postZip);
+  const [country, setCountry] = useState(contact.country);
 
   useEffect(() => {
-    setPhone(states.phone);
-    setEmail(states.email);
-    setAdress(states.adress);
-    setCity(states.city);
-    setRegion(states.region);
-    setPostZip(states.postZip);
-    setCountry(states.country);
-  }, [states])
+    setPhone(contact.phone);
+    setEmail(contact.email);
+    setAdress(contact.adress);
+    setCity(contact.city);
+    setRegion(contact.region);
+    setPostZip(contact.postZip);
+    setCountry(contact.country);
+  }, [contact])
 
   const changedStates = { phone, email, adress, city, region, postZip, country };
   const setChangedStates = { setPhone, setEmail, setAdress, setCity, setRegion, setPostZip, setCountry };
   return (
     <SectionPopup
       title='What is you contact information?'
-      states={states}
-      setStates={setStates}
-      changedStates={changedStates}
-      setChangedStates={setChangedStates}
+      states={contact}
+      setStates={setContact}
+      {...{changedStates, setChangedStates, modal, setModal}}
     >
       <PopupInput
         label='Phone'

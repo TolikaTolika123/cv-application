@@ -3,22 +3,22 @@ import SectionPopup from '../../UI/Popup/SectionPopup'
 import PopupInput from '../../UI/Popup/PopupInput';
 import PopupTextarea from '../../UI/Popup/PopupTextarea';
 
-const CVOverviewPopup = ({ states, setStates }) => {
-  const [firstName, setFirstName] = useState(states.firstName);
-  const [lastName, setLastName] = useState(states.lastName);
-  const [profession, setProfession] = useState(states.profession);
-  const [about, setAbout] = useState(states.about);
-  const [facebook, setFacebook] = useState(states.facebook);
-  const [linkedin, setLinkedin] = useState(states.linkedin);
+const CVOverviewPopup = ({ overview, setOverview, modal, setModal }) => {
+  const [firstName, setFirstName] = useState(overview.firstName);
+  const [lastName, setLastName] = useState(overview.lastName);
+  const [profession, setProfession] = useState(overview.profession);
+  const [about, setAbout] = useState(overview.about);
+  const [facebook, setFacebook] = useState(overview.facebook);
+  const [linkedin, setLinkedin] = useState(overview.linkedin);
 
   useEffect(() => {
-    setFirstName(states.firstName);
-    setLastName(states.lastName);
-    setProfession(states.profession);
-    setAbout(states.about);
-    setFacebook(states.facebook);
-    setLinkedin(states.linkedin);
-  }, [states])
+    setFirstName(overview.firstName);
+    setLastName(overview.lastName);
+    setProfession(overview.profession);
+    setAbout(overview.about);
+    setFacebook(overview.facebook);
+    setLinkedin(overview.linkedin);
+  }, [overview])
   
   const changedStates = { firstName, lastName, profession, about, facebook, linkedin };
   const setChangedStates = { setFirstName, setLastName, setProfession, setAbout, setFacebook, setLinkedin }
@@ -26,10 +26,9 @@ const CVOverviewPopup = ({ states, setStates }) => {
   return (
     <SectionPopup
       title='Introduce yourself'
-      states={states}
-      setStates={setStates}
-      changedStates={changedStates}
-      setChangedStates={setChangedStates}
+      states={overview}
+      setStates={setOverview}
+      {...{changedStates, setChangedStates, modal, setModal}}
     >
       <div className="section__popup-formGroup">
         <PopupInput
