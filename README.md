@@ -1,6 +1,6 @@
 # CV Application
 
-[Live Demo](https://tolikatolika123.github.io/cv-application/)
+[Live Demo](https://avetisovi.github.io/cv-application/)
 
 Web app that helps to create CV
 
